@@ -34,7 +34,7 @@ export default class WalletGen {
         return secretKeyBytes
     }
 
-    static getAddressFromPublic(accountPublicKeyBytes : Uint8Array, prefix = "nano") : string {
+    static getAddressFromPublic(accountPublicKeyBytes : Uint8Array, prefix = "bcb") : string {
         const accountHex = WalletGen.uint8ToHex(accountPublicKeyBytes)
         const keyBytes = WalletGen.uint4ToUint8(WalletGen.hexToUint4(accountHex)) // For some reason here we go from u, to hex, to 4, to 8??
         const checksum = WalletGen.uint5ToString(

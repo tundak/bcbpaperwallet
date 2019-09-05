@@ -15,9 +15,9 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home,
+      component: Create,
     },
-    {
+    /*{
       path: '/create',
       name: 'Create',
       component: Create,
@@ -26,6 +26,6 @@ export default new Router({
       path: '/redeem',
       name: 'Redeem',
       component: Redeem,
-    },
+    },*/
   ],
 });

@@ -21,7 +21,7 @@ body{
       background: rgb(38,119,255);
       background: -moz-linear-gradient(45deg, rgba(38,119,255,1) 0%, rgba(32,32,181,1) 100%);
       background: -webkit-linear-gradient(45deg, rgba(38,119,255,1) 0%, rgba(32,32,181,1) 100%);
-      background: linear-gradient(45deg, rgba(38,119,255,1) 0%, rgba(32,32,181,1) 100%);
+      background: linear-gradient(45deg, rgb(18,18,19) 0%, rgb(185,185,214) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2677ff",endColorstr="#2020b5",GradientType=1);
       border: none;
 }
@@ -145,7 +145,7 @@ body{
       background: rgb(38,119,255);
       background: -moz-linear-gradient(45deg, rgba(38,119,255,1) 0%, rgba(32,32,181,1) 100%);
       background: -webkit-linear-gradient(45deg, rgba(38,119,255,1) 0%, rgba(32,32,181,1) 100%);
-      background: linear-gradient(45deg, rgba(38,119,255,1) 0%, rgba(32,32,181,1) 100%);
+      background: linear-gradient(45deg, rgb(37,37,37) 0%, rgb(187,187,204) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2677ff",endColorstr="#2020b5",GradientType=1);
 }
 
@@ -164,7 +164,13 @@ body{
       border-radius: 6px;
       border-color: map-get($theme-colors, primary);
       line-height:1.5;
-      min-height: 200px;
+      height: 60px;
+      width:80%;
+}
+
+.input-group-text{
+      height: 85%;
+      width: 50%;
 }
 
 .paper{

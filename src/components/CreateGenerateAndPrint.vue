@@ -4,25 +4,6 @@
     <div class="section mt-4">
       <div class="container-flex bg-footer py-5">
         <div class="container-my mx-auto">
-          <div class="row d-flex justify-content-center align-items-center">
-            <span class="h3 text-light">Design:</span>
-            <select class="ml-2 mr-4 dropdown-header mb-2" id="design" v-model="design">
-              <option value="A" selected="selected">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-              <option value="E">E</option>
-              <option value="F">F</option>
-              <option value="G">G</option>
-            </select>
-            <span class="h3 text-light">Add</span>
-            <select class="mx-2 dropdown-header mb-2" id="amount" v-model="numPaperWallets">
-              <option value="1" selected="selected">1</option>
-              <option value="5">5</option>
-              <option value="10">10</option>
-            </select>
-            <span class="h3 text-light">more paper wallets</span>
-          </div>
           <div class="row d-flex justify-content-center align-items-center mt-3">
             <div class="col-8 col-md-7 col-lg-6 d-flex justify-content-center">
               <button
@@ -41,15 +22,38 @@
       <div class="container-my mx-auto py-3">
         <div class="row d-flex justify-content-center align-middle">
           <div class="col-12">
-            <h2 class="w700 text-center text-primary">List of Generated Wallets</h2>
+            <h2 class="w700 text-center text-primary">List of Generated Wallet</h2>
           </div>
           <div class="col-12">
-            <textarea
-              v-model="generatedWalletList"
-              class="w-100 text-dark h6 text-area p-3 font-secondary w600"
-              id="generatedwallets"
-              readonly
-            ></textarea>
+            <h6 class="text-primary">Public Address</h6>
+            <div class="input-group">
+                <textarea
+                  v-model="generatedWalletList"
+                  class="text-dark h6 text-area p-3 font-secondary w600"
+                  id="generatedpub"
+                  readonly
+                ></textarea>
+                <div class="input-group-append" @click="copypublic">
+                  <div class="input-group-text">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>
+                  </div>
+                </div>
+            </div>
+
+            <h6 class="text-primary">Private Seed</h6>
+            <div class="input-group">
+                <textarea
+                  v-model="generatedWalletseed"
+                  class="text-dark h6 text-area p-3 font-secondary w600"
+                  id="generatedseed"
+                  readonly
+                ></textarea>
+                <div class="input-group-append" @click="copyseed">
+                  <div class="input-group-text">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>
+                  </div>
+                </div>
+            </div>
           </div>
           <div class="col-12">
             <div class="row d-flex justify-content-center">
@@ -90,33 +94,60 @@ export default Vue.extend({
       numPaperWallets: 1,
       design: "A",
       wallets: [],
-      generatedWalletList: ""
+      generatedWalletList: "",
+      generatedWalletseed: ""
     };
   },
   methods: {
+
+    copypublic: function (e) {
+      let selectEl = document.querySelector('#generatedpub');
+
+      selectEl.select();
+      try {
+            var successful = document.execCommand('copy');;
+            alert('Address copied to clipboard successfully');
+          } catch (err) {
+            alert('Oops, unable to copy');
+          }
+    },
+    copyseed: function (e) {
+      let selectEl = document.querySelector('#generatedseed');
+
+      selectEl.select();
+      try {
+            var successful = document.execCommand('copy');;
+            alert('Seed copied to clipboard successfully');
+          } catch (err) {
+            alert('Oops, unable to copy');
+          }
+    },
+
     generateWallets() {
-      for (let i = 0; i < this.numPaperWallets; i++) {
-        if (this.design != 'G') {
+      //for (let i = 0; i < this.numPaperWallets; i++) {
+        //if (this.design != 'G') {
           WalletGen.genWallet().then(wallet => {
             this.wallets.push({
               address: wallet.address,
               seed: wallet.seed.toUpperCase(),
               design: this.design
             });
-            if (this.generatedWalletList.length > 0) {
+/*            if (this.generatedWalletList.length > 0) {
               this.generatedWalletList += "\n";
-            }
+            }*/
             this.generatedWalletList += wallet.address;
+            this.generatedWalletseed += wallet.seed;
           });
-        } else {
+        /*} else {
           // Special instructions design
           this.wallets.push({
             address: null,
             seed: null,
             design: this.design
           });
-        }
-      }
+        }*/
+      //}
+
       let title = this.numPaperWallets
       if (this.numPaperWallets > 1 && this.design != 'G') {
         title += " paper wallets have been generated!"
