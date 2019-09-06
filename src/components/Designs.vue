@@ -12,21 +12,6 @@
             <div class="col-12 col-md-6 mt-5 px-4">
               <img width="100%" class="w-100" src="../assets/img/paperwalletemptyA.png">
             </div>
-            <div class="col-12 col-md-6 mt-5 px-4">
-              <img class="w-100" src="../assets/img/paperwalletemptyB.svg">
-            </div>
-            <div class="col-12 col-md-6 mt-5 px-4">
-              <img class="w-100" src="../assets/img/paperwalletemptyC.svg">
-            </div>
-            <div class="col-12 col-md-6 mt-5 px-4">
-              <img class="w-100" src="../assets/img/paperwalletemptyD.svg">
-            </div>
-            <div class="col-12 col-md-6 mt-5 px-4">
-              <img class="w-100" src="../assets/img/paperwalletemptyE.svg">
-            </div>
-            <div class="col-12 col-md-6 mt-5 px-4">
-              <img class="w-100" src="../assets/img/paperwalletemptyF.svg">
-            </div>
           </div>
         </div>
       </div>

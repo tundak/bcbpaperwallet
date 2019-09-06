@@ -1,4 +1,4 @@
-# A website for creating paper wallets for NANO
+# A website for creating paper wallets for BCB
 
 # Development
 
