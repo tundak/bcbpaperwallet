@@ -10,7 +10,7 @@
           </h5>
           <div class="row d-flex justify-content-center align-middle">
             <div class="col-12 col-md-6 mt-5 px-4">
-              <img class="w-100" src="../assets/img/paperwalletemptyA.svg">
+              <img width="100%" class="w-100" src="../assets/img/paperwalletemptyA.png">
             </div>
             <div class="col-12 col-md-6 mt-5 px-4">
               <img class="w-100" src="../assets/img/paperwalletemptyB.svg">

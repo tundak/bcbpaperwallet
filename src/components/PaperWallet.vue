@@ -2,34 +2,22 @@
     <div class="wallet-container" v-if="design != 'G'">
         <!-- QR Code for SEED -->
         <div class="wallet-qr" v-html="qrSeed" />
-        <img svg-inline v-if="design == 'A'" class="address-logo" src="../assets/img/QRlogoA.svg" />
-        <img svg-inline v-else-if="design == 'B'" class="address-logo" src="../assets/img/QRlogoB.svg" />
-        <img svg-inline v-else-if="design == 'C'" class="address-logo" src="../assets/img/QRlogoC.svg" />
-        <img svg-inline v-else-if="design == 'D'" class="address-logo" src="../assets/img/QRlogoA.svg" />
-        <img svg-inline v-else class="address-logo" src="../assets/img/QRlogoA.svg" />
+        <img svg-inline v-if="design == 'A'" class="address-logo" src="../assets/img/QRlogoA.png" />
+        <img svg-inline v-else-if="design == 'D'" class="address-logo" src="../assets/img/QRlogoA.png" />
+        <img svg-inline v-else class="address-logo" src="../assets/img/QRlogoA.png" />
 
         <!-- QR Code for ADDRESS -->
         <div class="address-qr" v-html="qrAddress" />
-        <img svg-inline v-if="design == 'A'" class="address-logo-right" src="../assets/img/QRlogoA.svg" />
-        <img svg-inline v-else-if="design == 'B'" class="address-logo-right" src="../assets/img/QRlogoB.svg" />
-        <img svg-inline v-else-if="design == 'C'" class="address-logo-right" src="../assets/img/QRlogoC.svg" />
-        <img svg-inline v-else-if="design == 'D'" class="address-logo-right" src="../assets/img/QRlogoA.svg" />
-        <img svg-inline v-else class="address-logo-right" src="../assets/img/QRlogoA.svg" />
+        <img svg-inline v-if="design == 'A'" class="address-logo-right" src="../assets/img/QRlogoA.png" />
+        <img svg-inline v-else-if="design == 'D'" class="address-logo-right" src="../assets/img/QRlogoA.png" />
+        <img svg-inline v-else class="address-logo-right" src="../assets/img/QRlogoA.png" />
 
         <!-- Paper Wallet Design -->
-        <img svg-inline v-if="design == 'A'" src="../assets/img/paperwalletemptyA.svg" />
-        <img svg-inline v-else-if="design == 'B'" src="../assets/img/paperwalletemptyB.svg" />
-        <img svg-inline v-else-if="design == 'C'" src="../assets/img/paperwalletemptyC.svg" />
-        <img svg-inline v-else-if="design == 'D'" src="../assets/img/paperwalletemptyD.svg" />
-        <img svg-inline v-else-if="design == 'E'" src="../assets/img/paperwalletemptyE.svg" />
-        <img svg-inline v-else src="../assets/img/paperwalletemptyF.svg" />
+        <img width="100%" v-if="design == 'A'" src="../assets/img/paperwalletemptyA.png" />
 
         <!-- Address -->
         <div class="addressText" v-html="twoLineAddress()" />
         <div class="seedText" v-html="seedTextStyled()" />
-    </div>
-    <div class="wallet-container" v-else>
-        <img svg-inline src="../assets/img/paperwalletinstructions.svg" />
     </div>
 </template>
 

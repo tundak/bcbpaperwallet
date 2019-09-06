@@ -7,7 +7,7 @@
             <h2 class="w700 text-center text-primary">Paper Wallet Generator</h2>
             <h5
               class="w700 text-left text-primary col-12 col-md-10 col-lg-9 mx-auto"
-            >CAUTION: The paper wallets are not encrypted, so make sure to keep them safe and away from strangers.</h5>
+            >CAUTION: The paper wallet are not encrypted, so make sure to keep them safe and away from strangers.</h5>
             <div
               class="row d-flex justify-content-center align-content-middle"
             >
@@ -15,7 +15,7 @@
                 <div class="row d-flex justify-content-lg-between align-items-center">
 
                   <div class="col">
-                    <img class="w-100" src="../assets/img/paperwalletemptyA.svg">
+                    <img class="w-100" src="../assets/img/paperwalletemptyA.png">
                   </div>
                 </div>
               </div>

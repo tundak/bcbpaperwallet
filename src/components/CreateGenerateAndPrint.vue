@@ -22,7 +22,7 @@
       <div class="container-my mx-auto py-3">
         <div class="row d-flex justify-content-center align-middle">
           <div class="col-12">
-            <h2 class="w700 text-center text-primary">List of Generated Wallet</h2>
+            <h2 class="w700 text-center text-primary">Generated Wallet</h2>
           </div>
           <div class="col-12">
             <h6 class="text-primary">Public Address</h6>
