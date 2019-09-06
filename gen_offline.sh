@@ -15,9 +15,9 @@ cp -Rp app/static offline/
 sed -i'' -e 's%/static/build/%./static/build/%g' offline/static/build/app_js*
 cd offline
 rm walletgen.html-e
-zip -r9 nanopaperwallet_01.zip *
-md5 nanopaperwallet_01.zip > nanopaperwallet_01.zip.md5
+zip -r9 bcbpaperwallet_01.zip *
+md5 bcbpaperwallet_01.zip > bcbpaperwallet_01.zip.md5
 rm -rf walletgen* static
-echo "DONE offline/nanopaperwallet_01.zip"
+echo "DONE offline/bcbpaperwallet_01.zip"
 kill $FOO_PID
 

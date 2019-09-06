@@ -1,7 +1,7 @@
 {
-  "name": "nanopaperwallet",
+  "name": "bcbpaperwallet",
   "version": "1.0.0",
-  "description": "NANO Paper Wallet Generator",
+  "description": "BCB Paper Wallet Generator",
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --colors -p",
     "start": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-dev-server\" \"npm run flask-server\"",
@@ -11,9 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/appditto/nanopaperwallet.git"
+    "url": "git+https://github.com/tundak/nanopaperwallet.git"
   },
-  "author": "Appditto",
+  "author": "Sohan",
   "license": "MIT",
   "engines": {
     "node": ">=4"
@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/bbedward/geoffrey/issues"
   },
-  "homepage": "https://github.com/appditto/nanopaperwallet#readme",
+  "homepage": "https://github.com/tundak/nanopaperwallet#readme",
   "dependencies": {
     "@types/node": "^11.13.13",
     "affix": "^1.0.15",
