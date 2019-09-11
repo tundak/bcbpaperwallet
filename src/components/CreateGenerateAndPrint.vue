@@ -7,7 +7,7 @@
           <div class="row d-flex justify-content-center align-items-center mt-3">
             <div class="col-8 col-md-7 col-lg-6 d-flex justify-content-center">
               <button
-                class="btn btn-lg btn-light btn-light-shadow text-primary w600 px-4 w-100"
+                class="btn btn-lg btn-my btn-my-shadow text-light w600 px-4 w-100"
                 @click="generateWallets"
               >Generate</button>
             </div>
@@ -25,14 +25,14 @@
             <h2 class="w700 text-center text-primary">Generated Wallet</h2>
           </div>
           <div class="col-12">
-            <h6 class="text-primary">Public Address</h6>
+            <h6 class="text-primary">Public Address (Share)</h6>
             <div class="input-group">
-                <textarea
+                <input
                   v-model="generatedWalletList"
                   class="text-dark h6 text-area p-3 font-secondary w600"
                   id="generatedpub"
                   readonly
-                ></textarea>
+                />
                 <div class="input-group-append" @click="copypublic">
                   <div class="input-group-text">
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>
@@ -40,14 +40,14 @@
                 </div>
             </div>
 
-            <h6 class="text-primary">Private Seed</h6>
+            <h6 class="text-primary">Private Seed (DO NOT SHARE WITH ANYONE)</h6>
             <div class="input-group">
-                <textarea
+                <input
                   v-model="generatedWalletseed"
                   class="text-dark h6 text-area p-3 font-secondary w600"
                   id="generatedseed"
                   readonly
-                ></textarea>
+                />
                 <div class="input-group-append" @click="copyseed">
                   <div class="input-group-text">
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>
@@ -124,29 +124,22 @@ export default Vue.extend({
     },
 
     generateWallets() {
-      //for (let i = 0; i < this.numPaperWallets; i++) {
-        //if (this.design != 'G') {
+
           WalletGen.genWallet().then(wallet => {
+
             this.wallets.push({
               address: wallet.address,
               seed: wallet.seed.toUpperCase(),
               design: this.design
             });
-/*            if (this.generatedWalletList.length > 0) {
-              this.generatedWalletList += "\n";
-            }*/
-            this.generatedWalletList += wallet.address;
-            this.generatedWalletseed += wallet.seed;
+
+            this.generatedWalletList = wallet.address;
+            this.generatedWalletseed = wallet.seed;
+
+
           });
-        /*} else {
-          // Special instructions design
-          this.wallets.push({
-            address: null,
-            seed: null,
-            design: this.design
-          });
-        }*/
-      //}
+          this.wallets =[];
+
 
       let title = this.numPaperWallets
       if (this.numPaperWallets > 1 && this.design != 'G') {
