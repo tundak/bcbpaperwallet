@@ -9,7 +9,7 @@
               <button
                 class="btn btn-lg btn-my btn-my-shadow text-light w600 px-4 w-100"
                 @click="generateWallets"
-              >Generate</button>
+              >GENERATE SEED/WALLET PAIR</button>
             </div>
           </div>
         </div>
@@ -25,21 +25,6 @@
             <h2 class="w700 text-center text-primary">Generated Wallet</h2>
           </div>
           <div class="col-12">
-            <h6 class="text-primary">Public Address (Share)</h6>
-            <div class="input-group">
-                <input
-                  v-model="generatedWalletList"
-                  class="text-dark h6 text-area p-3 font-secondary w600"
-                  id="generatedpub"
-                  readonly
-                />
-                <div class="input-group-append" @click="copypublic">
-                  <div class="input-group-text">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>
-                  </div>
-                </div>
-            </div>
-
             <h6 class="text-primary">Private Seed (DO NOT SHARE WITH ANYONE)</h6>
             <div class="input-group">
                 <input
@@ -54,13 +39,28 @@
                   </div>
                 </div>
             </div>
+
+            <h6 class="text-primary">Public Address (SHARE)</h6>
+            <div class="input-group">
+                <input
+                  v-model="generatedWalletList"
+                  class="text-dark h6 text-area p-3 font-secondary w600"
+                  id="generatedpub"
+                  readonly
+                />
+                <div class="input-group-append" @click="copypublic">
+                  <div class="input-group-text">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>
+                  </div>
+                </div>
+            </div>
           </div>
           <div class="col-12">
             <div class="row d-flex justify-content-center">
               <button
                 class="btn btn-lg btn-my btn-my-shadow text-light w600 px-4 px-lg-5 mt-3"
                 @click="printWallets"
-              >Print Everything Below</button>
+              >PRINT PAPER WALLET</button>
             </div>
           </div>
           <div
@@ -141,16 +141,11 @@ export default Vue.extend({
           this.wallets =[];
 
 
-      let title = this.numPaperWallets
-      if (this.numPaperWallets > 1 && this.design != 'G') {
-        title += " paper wallets have been generated!"
-      } else if (this.design != 'G') {
-        title += " paper wallet has been generated!"
-      } else if (this.numPaperWallets > 1) {
-        title += " instruction cards have been generated!"
-      } else {
-        title += " instruction card has been generated!"
-      }
+      let title;
+      if (this.design != 'G') {
+        title = "Wallet has been generated!"
+      } 
+
       this.$notify({
         group: "foo",
         title: title,
