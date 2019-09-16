@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="section">
+    <!-- <div class="section">
       <div class="container-my mx-auto py-5">
         <div class="row d-flex justify-content-center align-middle">
           <div class="col-12">
@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

@@ -9,7 +9,7 @@
               <button
                 class="btn btn-lg btn-my btn-my-shadow text-light w600 px-4 w-100"
                 @click="generateWallets"
-              >GENERATE SEED/WALLET PAIR</button>
+              >GENERATE SEED/ WALLET PAIR</button>
             </div>
           </div>
         </div>
